@@ -11,12 +11,11 @@ router.get('/', (req, res) => {
 });
 
 //Add a new movie
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
     const {title, director, year, rate} = req.body;
     if (title && director && year && rate) {
         const id = movies.length +1
         const newMovie = {...req.body, id};
-        //console.log(newMovie)
         movies.push(newMovie)
         res.json(movies)
     } else {
@@ -24,27 +23,21 @@ router.post('/', (req, res) => {
     }
 });
 
-
 //Removing a movie
- router.delete('/:id', (req, res) => {
+ router.delete('/remove/:id', (req, res) => {
     const idToRemove  = req.params.id;
-
-  
     for (let i = 0; i < movies.length; i++) {
         if(movies[i].id == idToRemove){
             movies.splice(i, 1);
-       
-              } else {
-                res.status(404).send("No se ha encontrado ninguna película con ese ID.")
+            } else {
+             res.status(404).send("No se ha encontrado ninguna película con ese ID.")
             }
-
     }
     res.json(movies);
 }); 
 
-
 //Update a movie
-router.put('/:id', (req, res) => {
+router.put('/update/:id', (req, res) => {
     const movieToUpdateId = req.params.id;
     const updatedMovie = req.body;
     for (let i = 0; i < movies.length; i++) {
@@ -60,6 +53,18 @@ router.put('/:id', (req, res) => {
     }
     res.json(movies);
 });
+
+router.put('/like/:id', (req, res) => {
+    const likeId = req.params.id;
+    for (let i = 0; i < movies.length; i++) {
+        if(movies[i].id == likeId ) {
+            movies[i].like ++;
+        } 
+        
+    } 
+
+    res.json(movies); 
+})
 
 
 module.exports = router;

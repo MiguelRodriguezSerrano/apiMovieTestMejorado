@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/api/movies', require('./movies/movies'));
 
 
+
 //starting the server
 app.listen(app.get('port'), () => {
     console.log(`Server on port ${3000}`);
