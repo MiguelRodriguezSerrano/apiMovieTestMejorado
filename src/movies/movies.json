@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Vengadores Endgame",
+    "director": "Anthony and Joe Russo",
+    "year": "2019",
+    "rate": "9.6",
+    "id": 1
+  },
+  {
+    "title": "Thor Ragnarock",
+    "director": "Taika Waititi",
+    "year": "2018",
+    "rate": "8.0",
+    "id": 2
+  },
+  {
+    "title": "The Dark Knight",
+    "director": "Cristopher Nolan",
+    "year": "2008",
+    "rate": "9.1",
+    "id": 3
+  }
+
+]
